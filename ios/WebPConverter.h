@@ -1,16 +1,6 @@
-//
-//  WebPConverter.h
-//  gifapp
-//
-//  Created by Abhinand Vk on 19/12/23.
-//
+#import <UIKit/UIKit.h>
+#import <React/RCTBridgeModule.h>
 
-#import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
-
-@interface WebPConverter : NSObject
+@interface WebPConverter : NSObject <RCTBridgeModule>
 
 @end
-
-NS_ASSUME_NONNULL_END

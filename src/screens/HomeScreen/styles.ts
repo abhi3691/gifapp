@@ -1,40 +1,45 @@
 import {StyleSheet} from 'react-native';
 import ScreenRatio from '../../components/constants/ScreenRatio';
-import {RFValue} from 'react-native-responsive-fontsize';
 import colors from '../../components/constants/colors';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
   container: {
-    height: ScreenRatio.height,
-    width: ScreenRatio.width,
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1,
+    padding: 20,
   },
-  textStyle: {
-    fontSize: RFValue(30),
-    color: colors.black,
-    width: ScreenRatio.width,
-    textAlign: 'center',
-    margin: ScreenRatio.width / 5,
+  buttonContnser: {
+    height: ScreenRatio.height / 8,
   },
-  buttonContainer: {
-    marginTop: ScreenRatio.height / 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: ScreenRatio.height / 20,
-    width: ScreenRatio.width,
-  },
-  button: {
-    height: ScreenRatio.height / 20,
-    width: ScreenRatio.width / 3,
+  buttonStyle: {
+    height: 50,
+    margin: 20,
     borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: ScreenRatio.width / 1.1,
+    alignSelf: 'center',
     backgroundColor: colors.black,
   },
-  lable: {
-    fontSize: RFValue(12),
+  buttonText: {
     color: colors.white,
+    fontSize: RFValue(14),
+  },
+  flexContainer: {
+    height: ScreenRatio.height / 3,
+    marginBottom: ScreenRatio.height / 20,
+    elevation: 4,
+    borderRadius: 10,
+    backgroundColor: colors.white,
+  },
+  title: {
+    fontSize: RFValue(15),
+    color: colors.blue,
+    marginBottom: 10,
+    fontWeight: 'bold',
+  },
+  image: {
+    height: '100%',
+    width: '100%',
+    borderRadius: 10,
   },
 });
 

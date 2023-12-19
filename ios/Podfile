@@ -26,6 +26,10 @@ if linkage != nil
 end
 
 target 'gifapp' do
+  pod 'libwebp'
+  pod "SDWebImage"
+  pod 'SDWebImageWebPCoder'
+  pod "NSData+Base64"
   config = use_native_modules!
 
   use_react_native!(
@@ -38,7 +42,6 @@ target 'gifapp' do
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
   target 'gifappTests' do
     inherit! :complete
     # Pods for testing

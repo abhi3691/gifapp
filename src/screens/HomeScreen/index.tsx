@@ -1,65 +1,43 @@
-import {View, Text} from 'react-native';
-import React, {FC} from 'react';
-import ReactIcon from '../../assets/svg/react.svg';
-import styles from './styles';
+import {View, Text, SafeAreaView, Image} from 'react-native';
+import React from 'react';
 import Buttons from 'react-native-custom-buttons';
-import {
-  NavigationProp,
-  ParamListBase,
-  useNavigation,
-} from '@react-navigation/native';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withSpring,
-} from 'react-native-reanimated';
-import {RFValue} from 'react-native-responsive-fontsize';
-const HomeScreen: FC = () => {
-  //hooks
-  const navigation: NavigationProp<ParamListBase> = useNavigation();
+import styles from './styles';
+import colors from '../../components/constants/colors';
+import {useConvertTOWebp} from './api_hooks/convertToWebP/useContvertToWebp';
 
-  const progress = useSharedValue(0.5); //reanimated Intial Progress Set
+const HomeScreen = () => {
+  const {convertToWebP, convertedImage, loading, orginalImage} =
+    useConvertTOWebp();
 
-  const rStyle = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          scale: progress.value,
-        },
-      ],
-    };
-  }); //reAnimated Animated Style Set
-
-  //animation Redring Function
-  React.useEffect(() => {
-    progress.value = withRepeat(withSpring(2), 3, true);
-  }, [progress]);
-
-  //   //navigate to  User List
-  const gotListView = async () => {
-    navigation.navigate('UserList');
-  };
+  // const randomImageToWebp = async () => {
+  //   let randomImae = await getRandomImage();
+  //   if (randomImae) {
+  //     convertToWebP(randomImae);
+  //   }
+  // };
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle} numberOfLines={2}>
-        WELCOME TO REACT NATIVE ATOM
-      </Text>
-      <Animated.View style={rStyle}>
-        <ReactIcon height={RFValue(100)} width={RFValue(100)} />
-      </Animated.View>
-      <View style={styles.buttonContainer}>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.buttonContnser}>
         <Buttons
-          containerStyles={styles.button}
-          onPress={() => gotListView()}
-          type={'vector Icon'}
-          fontFamily="AntDesign"
-          iconName="user"
-          iconcolor="white"
-          iconSize={20}
+          onPress={() => convertToWebP()}
+          title="Random Image Generate"
+          type="Text"
+          containerStyles={styles.buttonStyle}
+          loaderSize={20}
+          loadercolor={colors.white}
+          isLoading={loading}
+          textStyle={styles.buttonText}
         />
       </View>
-    </View>
+      <Text style={styles.title}>Webp Image</Text>
+      <View style={styles.flexContainer}>
+        {convertedImage && <Image src={convertedImage} style={styles.image} />}
+      </View>
+      <Text style={styles.title}>Normal Image</Text>
+      <View style={styles.flexContainer}>
+        {orginalImage && <Image src={orginalImage} style={styles.image} />}
+      </View>
+    </SafeAreaView>
   );
 };
 
