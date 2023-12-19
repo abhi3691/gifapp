@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    alignItems: 'center',
   },
   buttonContnser: {
     height: ScreenRatio.height / 8,
@@ -24,7 +25,8 @@ const styles = StyleSheet.create({
     fontSize: RFValue(14),
   },
   flexContainer: {
-    height: ScreenRatio.height / 3,
+    height: ScreenRatio.height / 3.5,
+    width: ScreenRatio.width / 1.1,
     marginBottom: ScreenRatio.height / 20,
     elevation: 4,
     borderRadius: 10,
