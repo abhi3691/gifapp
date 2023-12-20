@@ -10,7 +10,6 @@ export const useConvertTOWebp = () => {
   const convertToWebP = async () => {
     setLoading(true);
     let imageUrl = await getRandomImage();
-    console.log('imageUrl', imageUrl);
     if (imageUrl) {
       try {
         WebPConverter.convertToWebP(imageUrl)

@@ -7,7 +7,7 @@ export const getRandomImage = async () => {
     let respone = await axios.get(
       `https://api.unsplash.com/photos/random?client_id=${AccessKey}&`,
     );
-    data = respone?.data?.urls.regular;
+    data = respone?.data?.urls.full;
   } catch (error) {
     console.log('err', error);
   }
