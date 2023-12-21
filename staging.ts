@@ -1,1 +1,1 @@
-export const BaseUrl = "https://reqres.in/api/users";
+export const BaseUrl = 'https://api.unsplash.com/photos';
